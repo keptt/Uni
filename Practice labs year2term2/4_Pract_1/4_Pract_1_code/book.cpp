@@ -5,11 +5,20 @@ Book::Book(const char *author, const char *title, const char *publisher, int yea
     if (!author || !title || !publisher)
     {
         if (author == nullptr)
+		{
             Book::author = new char[1];
+			*Book::author = '\0';
+		}
         if (title == nullptr)
+		{
             Book::title = new char[1];
+			*Book::title = '\0';
+		}
         if (publisher == nullptr)
+		{
             Book::publisher = new char[1];
+			*Book::publisher = '\0';
+		}
     }
     else
     {
@@ -88,8 +97,8 @@ void Book::set_arr(char *field_arr, const char *arr)
         field_arr = new char[strlen(arr)+1];
         strcpy(field_arr, arr);
     }
-    else
-        field_arr = new char[1];
+	else
+		field_arr = nullptr;
 }
 
 void Book::display()

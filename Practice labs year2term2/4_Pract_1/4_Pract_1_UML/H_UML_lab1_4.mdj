@@ -350,7 +350,7 @@
 											"top": 386,
 											"width": 657.8076171875,
 											"height": 13,
-											"text": "+set_number_pages(in number_pages: char[*]): void",
+											"text": "+set_number_pages(in number_pages: int): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -401,7 +401,7 @@
 											"top": 431,
 											"width": 657.8076171875,
 											"height": 13,
-											"text": "+get_publisher(): const char[*]",
+											"text": "+get_publisher(): char[*]",
 											"horizontalAlignment": 0
 										},
 										{
@@ -811,8 +811,7 @@
 										"$ref": "AAAAAAFpk4Eu7FrgOco="
 									},
 									"name": "in number_pages",
-									"type": "char",
-									"multiplicity": "*"
+									"type": "int"
 								},
 								{
 									"_type": "UMLParameter",
@@ -879,7 +878,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFpNDJ19uj50Lk="
 									},
-									"type": "const char",
+									"type": "char",
 									"multiplicity": "*",
 									"direction": "return"
 								}
