@@ -2,32 +2,31 @@
 Book::Book(const char *author, const char *title, const char *publisher, int year, int number_pages):author(), title(), publisher(),
                                                                                                      year(year), number_pages(number_pages)
 {
-    if (!author || !title || !publisher)
-    {
-        if (author == nullptr)
-		{
-            Book::author = new char[1];
-			*Book::author = '\0';
-		}
-        if (title == nullptr)
-		{
-            Book::title = new char[1];
-			*Book::title = '\0';
-		}
-        if (publisher == nullptr)
-		{
-            Book::publisher = new char[1];
-			*Book::publisher = '\0';
-		}
-    }
+    if (author == nullptr)
+	{
+        Book::author = nullptr;
+	}
+	else
+	{
+		Book::author = new char[strlen(author)+1];
+		strcpy(Book::author, author);
+	}
+    if (title == nullptr)
+	{
+        Book::title = nullptr;
+	}
+	else
+	{
+		Book::title = new char[strlen(title)+1];;
+		strcpy(Book::title, title);
+	}
+    if (publisher == nullptr)
+	{
+        Book::publisher = nullptr;
+	}
     else
     {
-        Book::author = new char[strlen(author)+1];
-        Book::title = new char[strlen(title)+1];
         Book::publisher = new char[strlen(publisher)+1];
-
-        strcpy(Book::author, author);
-        strcpy(Book::title, title);
         strcpy(Book::publisher, publisher);
     }
 }
