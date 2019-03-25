@@ -3,16 +3,11 @@
 using namespace std;
 
 flat::flat(const char *address, int floor, double S, unsigned int num_rooms) :
-    address_(), floor_(floor), S_(S), num_rooms_(num_rooms)
-{
-    address_ = new char[strlen(address)+1];
-    strcpy(address_, address);
-}
+    address_(address), floor_(floor), S_(S), num_rooms_(num_rooms)
+{}
 
 flat::~flat()
-{
-    delete[] address_;
-}
+{}
 
 void flat::set_floor(int floor)
 {
@@ -28,12 +23,10 @@ void flat::set_num_rooms(unsigned int num_rooms)
 }
 void flat::set_address(const char *address)
 {
-    delete[] address_;
-    address_ = new char[strlen(address)+1];
-    strcpy(address_, address);
+    address_ = address;
 }
 
-const char * flat::get_address() const
+const std::string flat::get_address() const
 {
     return address_;
 }
@@ -50,10 +43,10 @@ unsigned int flat::get_num_rooms() const
     return num_rooms_;
 }
 
-void print_flat(const flat &f)
+void flat::print_flat()
 {
-    cout << "Adres - " << f.get_address() << endl;
-    cout << "Plosh'ya - " << f.get_S() << endl;
-    cout << "Poverh - " << f.get_floor() << endl;
-    cout << "K-st' kimnat - " << f.get_num_rooms() << endl;
+    cout << "Adres - " << address_ << endl;
+    cout << "Plosh'ya - " << S_ << endl;
+    cout << "Poverh - " << floor_ << endl;
+    cout << "K-st' kimnat - " << num_rooms_ << endl;
 }

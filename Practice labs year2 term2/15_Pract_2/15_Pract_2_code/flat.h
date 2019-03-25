@@ -1,21 +1,18 @@
 #ifndef FLAT_H
 #define FLAT_H
-#include <cstring>
+#include <string>
 #include <iostream>
-class flat;
-
-void print_flat(const flat &f);
 
 class flat
 {
 private:
-    char *address_;
+    std::string address_;
     int floor_;
     double S_;
     unsigned int num_rooms_;
 
 public:
-    flat( const char *address = const_cast<char*>(""), int floor = 0,
+    flat( const char *address = "", int floor = 0,
          double S = 0, unsigned int num_rooms = 0);
     ~flat();
 
@@ -24,9 +21,10 @@ public:
     void set_S(double area);
     void set_num_rooms(unsigned int num_rooms);
     void set_address(const char *address);
-    const char *get_address() const;
+    const std::string get_address() const;
     int get_floor() const;
     double get_S() const;
     unsigned int get_num_rooms() const;
+    void print_flat();
 };
 #endif // FLAT_H
