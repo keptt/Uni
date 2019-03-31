@@ -5,9 +5,9 @@ CONFIG -= qt
 
 SOURCES += \
         main.cpp \
-    flat.cpp \
-    set_of_flats.cpp
+    apartments.cpp \
+    apctainer.cpp
 
 HEADERS += \
-    flat.h \
-    set_of_flats.h
+    apartments.h \
+    apctainer.h
