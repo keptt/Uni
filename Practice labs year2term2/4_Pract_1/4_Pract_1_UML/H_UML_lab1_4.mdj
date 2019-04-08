@@ -59,7 +59,7 @@
 											"font": "Arial;13;1",
 											"left": 285,
 											"top": 175,
-											"width": 657.8076171875,
+											"width": 712.02294921875,
 											"height": 13,
 											"text": "Book"
 										},
@@ -90,7 +90,7 @@
 									"font": "Arial;13;0",
 									"left": 280,
 									"top": 168,
-									"width": 667.8076171875,
+									"width": 722.02294921875,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFpNCSM1egGwjI="
@@ -127,7 +127,7 @@
 											"font": "Arial;13;0",
 											"left": 285,
 											"top": 198,
-											"width": 657.8076171875,
+											"width": 712.02294921875,
 											"height": 13,
 											"text": "-author: char[*]",
 											"horizontalAlignment": 0
@@ -144,7 +144,7 @@
 											"font": "Arial;13;0",
 											"left": 285,
 											"top": 213,
-											"width": 657.8076171875,
+											"width": 712.02294921875,
 											"height": 13,
 											"text": "-title: char[*]",
 											"horizontalAlignment": 0
@@ -161,7 +161,7 @@
 											"font": "Arial;13;0",
 											"left": 285,
 											"top": 228,
-											"width": 657.8076171875,
+											"width": 712.02294921875,
 											"height": 13,
 											"text": "-publisher: char[*]",
 											"horizontalAlignment": 0
@@ -178,7 +178,7 @@
 											"font": "Arial;13;0",
 											"left": 285,
 											"top": 243,
-											"width": 657.8076171875,
+											"width": 712.02294921875,
 											"height": 13,
 											"text": "-year: int",
 											"horizontalAlignment": 0
@@ -195,7 +195,7 @@
 											"font": "Arial;13;0",
 											"left": 285,
 											"top": 258,
-											"width": 657.8076171875,
+											"width": 712.02294921875,
 											"height": 13,
 											"text": "-number_pages: int",
 											"horizontalAlignment": 0
@@ -204,7 +204,7 @@
 									"font": "Arial;13;0",
 									"left": 280,
 									"top": 193,
-									"width": 667.8076171875,
+									"width": 722.02294921875,
 									"height": 83
 								},
 								{
@@ -229,7 +229,7 @@
 											"font": "Arial;13;0",
 											"left": 285,
 											"top": 281,
-											"width": 657.8076171875,
+											"width": 712.02294921875,
 											"height": 13,
 											"text": "+Book(in author: char[*] = \"\", in title: char[*] = \"\", in publisher: char[*] = \"\", in year: int = 0, in number_pages: int = 0)",
 											"horizontalAlignment": 0
@@ -246,7 +246,7 @@
 											"font": "Arial;13;0",
 											"left": 285,
 											"top": 296,
-											"width": 657.8076171875,
+											"width": 712.02294921875,
 											"height": 13,
 											"text": "~Book()",
 											"horizontalAlignment": 0
@@ -263,9 +263,9 @@
 											"font": "Arial;13;0",
 											"left": 285,
 											"top": 311,
-											"width": 657.8076171875,
+											"width": 712.02294921875,
 											"height": 13,
-											"text": "-set_arr(field_arr: char[*], arr: char[*])",
+											"text": "-set_arr(inout field_arr: char[*], in arr: char[*])",
 											"horizontalAlignment": 0
 										},
 										{
@@ -280,7 +280,7 @@
 											"font": "Arial;13;0",
 											"left": 285,
 											"top": 326,
-											"width": 657.8076171875,
+											"width": 712.02294921875,
 											"height": 13,
 											"text": "+set_author(in author: char[*]): void",
 											"horizontalAlignment": 0
@@ -297,7 +297,7 @@
 											"font": "Arial;13;0",
 											"left": 285,
 											"top": 341,
-											"width": 657.8076171875,
+											"width": 712.02294921875,
 											"height": 13,
 											"text": "+set_title(in title: char[*]): void",
 											"horizontalAlignment": 0
@@ -314,7 +314,7 @@
 											"font": "Arial;13;0",
 											"left": 285,
 											"top": 356,
-											"width": 657.8076171875,
+											"width": 712.02294921875,
 											"height": 13,
 											"text": "+set_publisher(in publisher: char[*]): void",
 											"horizontalAlignment": 0
@@ -331,7 +331,7 @@
 											"font": "Arial;13;0",
 											"left": 285,
 											"top": 371,
-											"width": 657.8076171875,
+											"width": 712.02294921875,
 											"height": 13,
 											"text": "+set_year(in year: int): void",
 											"horizontalAlignment": 0
@@ -348,7 +348,7 @@
 											"font": "Arial;13;0",
 											"left": 285,
 											"top": 386,
-											"width": 657.8076171875,
+											"width": 712.02294921875,
 											"height": 13,
 											"text": "+set_number_pages(in number_pages: int): void",
 											"horizontalAlignment": 0
@@ -365,7 +365,7 @@
 											"font": "Arial;13;0",
 											"left": 285,
 											"top": 401,
-											"width": 657.8076171875,
+											"width": 712.02294921875,
 											"height": 13,
 											"text": "+get_author(): char[*]",
 											"horizontalAlignment": 0
@@ -382,7 +382,7 @@
 											"font": "Arial;13;0",
 											"left": 285,
 											"top": 416,
-											"width": 657.8076171875,
+											"width": 712.02294921875,
 											"height": 13,
 											"text": "+get_title(): char[*]",
 											"horizontalAlignment": 0
@@ -399,7 +399,7 @@
 											"font": "Arial;13;0",
 											"left": 285,
 											"top": 431,
-											"width": 657.8076171875,
+											"width": 712.02294921875,
 											"height": 13,
 											"text": "+get_publisher(): char[*]",
 											"horizontalAlignment": 0
@@ -416,7 +416,7 @@
 											"font": "Arial;13;0",
 											"left": 285,
 											"top": 446,
-											"width": 657.8076171875,
+											"width": 712.02294921875,
 											"height": 13,
 											"text": "+get_year(): int",
 											"horizontalAlignment": 0
@@ -433,7 +433,7 @@
 											"font": "Arial;13;0",
 											"left": 285,
 											"top": 461,
-											"width": 657.8076171875,
+											"width": 712.02294921875,
 											"height": 13,
 											"text": "+get_number_pages(): int",
 											"horizontalAlignment": 0
@@ -450,7 +450,7 @@
 											"font": "Arial;13;0",
 											"left": 285,
 											"top": 476,
-											"width": 657.8076171875,
+											"width": 712.02294921875,
 											"height": 13,
 											"text": "+display()",
 											"horizontalAlignment": 0
@@ -459,7 +459,7 @@
 									"font": "Arial;13;0",
 									"left": 280,
 									"top": 276,
-									"width": 667.8076171875,
+									"width": 722.02294921875,
 									"height": 218
 								},
 								{
@@ -495,7 +495,7 @@
 							"containerChangeable": true,
 							"left": 280,
 							"top": 168,
-							"width": 667.8076171875,
+							"width": 722.02294921875,
 							"height": 326,
 							"nameCompartment": {
 								"$ref": "AAAAAAFpNCSM1egFM/0="
@@ -667,7 +667,8 @@
 									},
 									"name": "field_arr",
 									"type": "char",
-									"multiplicity": "*"
+									"multiplicity": "*",
+									"direction": "inout"
 								},
 								{
 									"_type": "UMLParameter",
@@ -675,7 +676,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFpk3+p3lrJq7k="
 									},
-									"name": "arr",
+									"name": "in arr",
 									"type": "char",
 									"multiplicity": "*"
 								}

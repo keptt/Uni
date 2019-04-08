@@ -88,7 +88,7 @@ void Book::set_number_pages(int number_pages)
     Book::number_pages = number_pages;
 }
 
-void Book::set_arr(char *field_arr, const char *arr)
+void Book::set_arr(char *&field_arr, const char *arr)
 {
     delete []field_arr;
     if (arr)

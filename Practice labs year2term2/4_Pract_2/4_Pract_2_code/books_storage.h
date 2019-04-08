@@ -20,14 +20,14 @@ class books_storage
 {
 	Book *internal_arr;
 	int size;
+	void print_hat() const;
+	void print(Book &ex) const;
 public:
 	books_storage();
 	books_storage(library *arr, int size);
 	void print_books_by_author(const char *author) const;
 	void print_books_by_publisher(const char *publisher) const;
 	void print_books_after_year(int year) const;
-	void print_hat() const;
-	void print(Book &ex) const;
 	~books_storage();
 };
 

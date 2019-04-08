@@ -10,7 +10,7 @@ class Book
     char *publisher;
     int year;
     int number_pages;
-    void set_arr(char *, const char *);
+    void set_arr(char *&, const char *);
 public:
     Book(const char *author = "", const char *title = "", const char *publisher = "", int year = 0, int number_pages = 0);
     ~Book();

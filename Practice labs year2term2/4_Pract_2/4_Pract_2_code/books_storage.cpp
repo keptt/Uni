@@ -14,23 +14,13 @@ books_storage::books_storage(library *arr, int size)
 	{
 		internal_arr[i].set_year(arr[i].year);
 
-		int YEAR = internal_arr[i].get_year();
-
 		internal_arr[i].set_number_pages(arr[i].number_pages);
-
-		int NUM_PGS = internal_arr[i].get_numer_pages();
 
 		internal_arr[i].set_author(arr[i].author);
 
-		const char *AUTHOR = internal_arr[i].get_author();
-
 		internal_arr[i].set_publisher(arr[i].publisher);
 
-		const char * PUBLISHER = internal_arr[i].get_publisher();
-
 		internal_arr[i].set_title(arr[i].title);
-
-		const char * TITLE = internal_arr[i].get_title();
 	}
 }
 
