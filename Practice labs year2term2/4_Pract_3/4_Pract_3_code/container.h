@@ -11,8 +11,11 @@ protected:
     int size;
 public:
 
-    virtual void get_info() const = 0;
-    virtual ~container();//777
+    container(std::string name = "None", int size = 0);
+    void print() const;
+    virtual std::string get_info() const = 0;
+    virtual std::string get_typename() const = 0;
+    virtual ~container();
 };
 
 #endif // CONTAINER_H

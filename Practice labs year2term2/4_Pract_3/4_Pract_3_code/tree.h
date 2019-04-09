@@ -4,12 +4,13 @@
 
 class tree : public container
 {
-    int *root;
+    void *root;
     int level_num;
 public:
 
-    tree(std::string name = "tree", int *root = nullptr);
-    virtual void get_info() const;
+    tree(std::string name = "tree", void *root = nullptr);
+    virtual std::string get_info() const;
+    virtual std::string get_typename() const;
     virtual ~tree();
 };
 

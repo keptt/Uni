@@ -4,12 +4,13 @@
 
 class queue : public container
 {
-    int *head;
-    int *tail;
+    void *head;
+    void *tail;
 public:
 
-    queue(std::string name = "queue", int *start_element = nullptr);
-    virtual void get_info() const;
+    queue(std::string name = "queue", void *start_element = nullptr);
+    virtual std::string get_info() const;
+    virtual std::string get_typename() const;
     virtual ~queue();
 };
 

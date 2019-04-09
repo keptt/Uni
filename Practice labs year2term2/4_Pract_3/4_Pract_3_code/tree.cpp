@@ -1,11 +1,11 @@
 #include "tree.h"
+#pragma warning(disable:4996)
+#define _CRT_SECURITY_NO_WARNINGS
 
-tree::tree(std::string name, int *root)
+tree::tree(std::string name, void *root): container (name, 0)
 {
 //    tree::name = "2";
 //    container::name = "1";
-    this->name = name;
-    this->size = 0;
     this->level_num = 0;
 
     if (root)
@@ -19,16 +19,24 @@ tree::tree(std::string name, int *root)
 
 }
 
-void tree::get_info() const
+std::string tree::get_info() const
 {
-    printf("\n");
+    std::string previnfo = container::get_info();
 
-    container::get_info();
+    char buffer[51];
 
-    printf("\n");
+    sprintf(buffer, "Root: %p\nLevel num: %i\n", root, level_num);
+
+    previnfo.append(buffer);
+
+    return previnfo;
+}
+
+std::string tree::get_typename() const
+{
+    return "tree";
 }
 
 tree::~tree()
 {
 }
-

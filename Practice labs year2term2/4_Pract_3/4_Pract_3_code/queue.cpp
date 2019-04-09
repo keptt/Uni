@@ -1,10 +1,10 @@
 #include "queue.h"
+#pragma warning(disable:4996)
+#define _CRT_SECURITY_NO_WARNINGS
 
-queue::queue(std::string name, int *start_element) //: name(name)
+queue::queue(std::string name, void *start_element) : container(name, 0)
 {
-    //container(name, size);
-    this->name = name;
-    this->size = 0;
+    //container::container(name, size);
 
     if (start_element)
     {
@@ -21,13 +21,22 @@ queue::queue(std::string name, int *start_element) //: name(name)
 
 }
 
-void queue::get_info() const
+std::string queue::get_info() const
 {
-    printf("\n");
+    std::string previnfo = container::get_info();
 
-    container::get_info();
+    char buffer[51];
 
-    printf("\n");
+    sprintf(buffer, "Head address: %p\nTail address: %p\n", head, tail);
+
+    previnfo.append(buffer);
+
+    return previnfo;
+}
+
+std::string queue::get_typename() const
+{
+    return "queue";
 }
 
 queue::~queue()

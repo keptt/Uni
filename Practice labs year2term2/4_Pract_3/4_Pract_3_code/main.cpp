@@ -2,6 +2,7 @@
 #include "container.h"
 #include "queue.h"
 #include "tree.h"
+#define ARRSIZE 2
 using namespace std;
 
 int main()
@@ -9,13 +10,26 @@ int main()
     queue q;
     tree t;
 
-    container *obj = &q;
+    container **arr = new container *[ARRSIZE];
 
-    obj->get_info();
+    arr[0] = new queue();
 
-    obj = &t;
+    arr[1] = new tree();
 
-    obj->get_info();
+    for (int i = 0; i < ARRSIZE; i++)
+    {
+        printf("..............................................\n");
+        arr[i]->print();
+        printf("..............................................\n");
+    }
+
+    for (int i = 0; i < ARRSIZE; i++)
+    {
+        delete arr[i];
+    }
+    delete [] arr;
+
+	getchar();
 
     return 0;
 }
