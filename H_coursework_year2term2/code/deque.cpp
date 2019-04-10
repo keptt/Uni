@@ -105,6 +105,11 @@ Deque::Node::Node(CommercialOrg *data):next(nullptr), prev(nullptr)
     }
 }
 
+Deque::Node::~Node()
+{
+    delete data;
+}
+
 Deque::Node &Deque::Node::operator=(const Deque::Node &node)
 {
     next = node.next;

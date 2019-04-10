@@ -45,6 +45,8 @@ bool WriteToFile::write(std::string filename)
         }
     }
 
+    fout.close();
+
     return true;
 }
 

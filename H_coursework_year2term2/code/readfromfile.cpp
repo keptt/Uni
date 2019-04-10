@@ -22,7 +22,7 @@ bool ReadFromFile::read(std::string filename)
     while (!fin.eof())
     {
         CommercialOrg *temp(nullptr);
-        if (type == "Bank\n")//определяем тип объекта и считываем данные из файла в объект подходящего типа (Bank или InsuranceComp)
+        if (type == "Bank")//определяем тип объекта и считываем данные из файла в объект подходящего типа (Bank или InsuranceComp)
         {
             Bank *temp = new Bank;
             std::getline(fin, data);
@@ -39,6 +39,7 @@ bool ReadFromFile::read(std::string filename)
             temp->setWorkersQuantity(std::stoi(data));
             std::getline(fin, data);
             temp->setCashYearlyFlow(std::stoi(data));
+
         }
         else
         {
@@ -60,11 +61,16 @@ bool ReadFromFile::read(std::string filename)
             std::getline(fin, data);
             temp->setInsuranceType(data);
             std::getline(fin, data);
-            temp->setMinInsuranceSum(std::stoi(data));
+            temp->setMinInsuranceSum(std::stoi(data)); 
+
         }
+        delete temp;
         collection->push_front(temp);
         std::getline(fin, type);
     }
+
+    fin.close();
+
     return true;
 }
 
