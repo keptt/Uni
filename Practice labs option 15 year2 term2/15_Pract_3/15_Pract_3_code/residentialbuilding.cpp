@@ -1,17 +1,29 @@
 #include "residentialbuilding.h"
 
-ResidentialBuilding::ResidentialBuilding(std::string address, std::string mission, size_t apartm_count, double_t area)
+ResidentialBuilding::ResidentialBuilding(std::string address, std::string mission, size_t apartm_count,
+                                         double area)
                    : Facility(address, mission, area), m_apartm_count(apartm_count)
 {
 }
 
-ResidentialBuilding::~ResidentialBuilding()
+std::string ResidentialBuilding::obj_data() const
 {
+    std::string base_info(Facility::obj_data());
+
+    char buffer[57];
+
+    sprintf(buffer, "Number of apartments: %d\n", m_apartm_count);
+
+    base_info += (std::string)buffer;
+
+    return base_info;
 }
 
-void ResidentialBuilding::print_out() const
+std::string ResidentialBuilding::class_name() const
 {
-    std::cout << "\n\n" << "Class: ResidentialBuilding\n";
-    Facility::print_out();
-    std::cout << "Number of apartments: " << m_apartm_count << "\n\n";
+    return "Class: ResidentialBuilding\n";
+}
+
+ResidentialBuilding::~ResidentialBuilding()
+{
 }

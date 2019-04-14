@@ -1,16 +1,15 @@
-#ifndef WAREHOUSE_H
-#define WAREHOUSE_H
+#pragma once
 #include "facility.h"
 
 class Warehouse : public Facility
 {
 public:
     Warehouse(std::string address = "", std::string mission = "",
-              std::string circs = "", double_t area = 0);
-    void print_out() const;
-    ~Warehouse();
+              std::string circs = "", double area = 0);
+    std::string class_name() const override;
+    std::string obj_data() const override;
+    ~Warehouse() override;
 private:
     std::string m_circs;
 };
 
-#endif // WAREHOUSE_H
