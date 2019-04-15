@@ -19,6 +19,7 @@ public:
     straight_line();
     straight_line(point &one, point &two);
     straight_line(const straight_line &) = default;
+    ~straight_line() = default;
     void print_equasion() const;
     void set_a(int x, int y);
     void set_b(int x, int y);
