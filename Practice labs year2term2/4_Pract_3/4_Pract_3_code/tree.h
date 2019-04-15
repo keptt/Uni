@@ -9,7 +9,8 @@ class tree : public container
 public:
 
     tree(std::string name = "tree", void *root = nullptr);
-    virtual std::string get_info() const;
+    virtual std::string get_base_info() const;
+    virtual std::string get_derived_info() const;
     virtual std::string get_typename() const;
     virtual ~tree();
 };

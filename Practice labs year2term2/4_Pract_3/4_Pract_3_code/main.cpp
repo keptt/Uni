@@ -12,9 +12,9 @@ int main()
 
     container **arr = new container *[ARRSIZE];
 
-    arr[0] = new queue();
+    arr[0] = new queue("queueNotNULL", (void *)234234);
 
-    arr[1] = new tree();
+    arr[1] = new tree("treeNotNULL", (void *)99999);
 
     for (int i = 0; i < ARRSIZE; i++)
     {
@@ -28,8 +28,6 @@ int main()
         delete arr[i];
     }
     delete [] arr;
-
-	getchar();
 
     return 0;
 }

@@ -9,7 +9,8 @@ class queue : public container
 public:
 
     queue(std::string name = "queue", void *start_element = nullptr);
-    virtual std::string get_info() const;
+    virtual std::string get_base_info() const;
+    virtual std::string get_derived_info() const;
     virtual std::string get_typename() const;
     virtual ~queue();
 };

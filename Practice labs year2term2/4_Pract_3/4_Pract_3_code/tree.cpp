@@ -1,6 +1,4 @@
 #include "tree.h"
-#pragma warning(disable:4996)
-#define _CRT_SECURITY_NO_WARNINGS
 
 tree::tree(std::string name, void *root): container (name, 0)
 {
@@ -19,17 +17,18 @@ tree::tree(std::string name, void *root): container (name, 0)
 
 }
 
-std::string tree::get_info() const
+std::string tree::get_base_info() const
 {
-    std::string previnfo = container::get_info();
+    return container::get_base_info();
+}
 
+std::string tree::get_derived_info() const
+{
     char buffer[51];
 
     sprintf(buffer, "Root: %p\nLevel num: %i\n", root, level_num);
 
-    previnfo.append(buffer);
-
-    return previnfo;
+    return buffer;
 }
 
 std::string tree::get_typename() const

@@ -1,6 +1,4 @@
 #include "queue.h"
-#pragma warning(disable:4996)
-#define _CRT_SECURITY_NO_WARNINGS
 
 queue::queue(std::string name, void *start_element) : container(name, 0)
 {
@@ -17,21 +15,20 @@ queue::queue(std::string name, void *start_element) : container(name, 0)
         head = nullptr;
         tail = nullptr;
     }
-
-
 }
 
-std::string queue::get_info() const
+std::string queue::get_base_info() const
 {
-    std::string previnfo = container::get_info();
+    return container::get_base_info();
+}
 
+std::string queue::get_derived_info() const
+{
     char buffer[51];
 
     sprintf(buffer, "Head address: %p\nTail address: %p\n", head, tail);
 
-    previnfo.append(buffer);
-
-    return previnfo;
+    return buffer;
 }
 
 std::string queue::get_typename() const
