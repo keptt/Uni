@@ -1,6 +1,6 @@
 #ifndef MENU_H
 #define MENU_H
-
+class Deque;
 
 class Menu//синглтон-класс меню (позволяет создать один и только один объект класса)
 {
@@ -17,5 +17,10 @@ public:
     void run();//основная функция в которой реализовано само меню
 //--------------------------------------------------------------------------------------//
 };
+
+void addBank(Deque &d);
+void addInsuranceComp(Deque &d);
+void writeToFile(Deque &d);
+void /*R*/readFromFile(Deque &d);
 
 #endif // MENU_H

@@ -95,12 +95,12 @@ Deque::Node::Node(CommercialOrg *data):next(nullptr), prev(nullptr)
         if (Bank *ptr = dynamic_cast<Bank *>(data))
         {
             this->data = new Bank;
-            *(this->data) = *data;
+            *(Bank *)(this->data) = *(Bank *)data;
         }
         else
         {
             this->data = new InsuranceComp;
-            *(this->data) = *data;
+            *(CommercialOrg *)(this->data) = *(CommercialOrg *)data;
         }
     }
 }
