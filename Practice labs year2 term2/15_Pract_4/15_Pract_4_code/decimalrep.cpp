@@ -3,8 +3,8 @@
 DecimalRep::DecimalRep():nominator(0), denominator(1){
 }
 
-DecimalRep::DecimalRep(int nominator, int denominator)
-{    if (!denominator){
+DecimalRep::DecimalRep(int nominator, int denominator){
+    if (!denominator){
         this->denominator = 1; this->nominator = nominator;
     }
     else if(nominator < 0 && denominator < 0 ){
@@ -15,11 +15,33 @@ DecimalRep::DecimalRep(int nominator, int denominator)
     }
 }
 
+DecimalRep::DecimalRep(const DecimalRep &alien):nominator(alien.nominator), denominator(alien.denominator){
+}
+
+DecimalRep::~DecimalRep(){
+}
+
 void DecimalRep::show() const{
     if (denominator < 0 || nominator < 0)
         std::cout << "-" << abs(nominator) << "/" << abs(denominator);
     else
         std::cout << nominator << "/" << denominator;
+}
+
+int DecimalRep::get_nominator() const{
+    return nominator;
+}
+
+int DecimalRep::get_denominator() const{
+    return denominator;
+}
+
+void DecimalRep::set_nominator(int nominator){
+    this->nominator = nominator;
+}
+
+void DecimalRep::set_denominator(int denominator){
+    this->denominator = denominator;
 }
 
 DecimalRep DecimalRep::simplify(){
@@ -34,8 +56,7 @@ DecimalRep DecimalRep::simplify(){
     return *this;
 }
 
-DecimalRep DecimalRep::simplified()
-{
+DecimalRep DecimalRep::simplified() const{
     DecimalRep temp(*this);
     return temp.simplify();
 }

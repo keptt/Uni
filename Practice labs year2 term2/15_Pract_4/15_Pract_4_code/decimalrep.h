@@ -6,10 +6,16 @@ class DecimalRep
 {
 public:
     DecimalRep();
-    DecimalRep(int deniminator, int denomirntor);
+    DecimalRep(int nominator, int denomirntor);
+    DecimalRep(const DecimalRep &);
+    ~DecimalRep();
     void show() const;
+    int get_nominator() const;
+    int get_denominator() const;
+    void set_nominator(int nominator);
+    void set_denominator(int denominator);
     DecimalRep simplify();
-    DecimalRep simplified();
+    DecimalRep simplified() const;
     DecimalRep operator+(DecimalRep rep);
     DecimalRep operator-(DecimalRep rep);
     DecimalRep operator*(DecimalRep rep);
