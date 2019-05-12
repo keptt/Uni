@@ -11,152 +11,155 @@ Fifo<T>::Fifo():head(nullptr), tail(nullptr), size(0)
 template<class T>
 Fifo<T>::Fifo(const Fifo<T>& second)
 {
-	copy(second);
+    copy(second);
 }
 
 template<class T>
 Fifo<T>::~Fifo()
 {
-	clear();
+    clear();
 }
 
 template<class T>
 Fifo<T> & Fifo<T>::operator=(const Fifo<T> & second)
 {
-	if (this == &second)
-		return *this;
+    if (this == &second)
+        return *this;
 
-	copy(second);
+    copy(second);
 
-	return *this;
+    return *this;
 }
 
 template<class T>
 void Fifo<T>::copy(const Fifo<T>& second)
 {
-	Node<T> *temp_second = second.head;
+    Node<T> *temp_second = second.head;
 
-	if (temp_second)
-	{
-		head = new Node<T>;
+    if (temp_second)
+    {
+        head = new Node<T>;
 
-		Node<T> *temp = head;
+        Node<T> *temp = head;
 
-		while (temp_second)
-		{
-			temp->data = temp_second->data;
-			temp->next = temp_second->next;
+        while (temp_second)
+        {
+            temp->data = temp_second->data;
+            temp->next = temp_second->next;
 
-			if (temp_second->next)
-			{
-				temp->next = new Node<T>;
-				temp = temp->next;
-			}
+            if (temp_second->next)
+            {
+                temp->next = new Node<T>;
+                temp = temp->next;
+            }
 
-			temp_second = temp_second->next;
-		}
+            temp_second = temp_second->next;
+        }
 
-		tail = temp;
-		tail->next = nullptr;
-		size = second.size;
-	}
-	else
-	{
-		head = nullptr; 
-		tail = nullptr;
-		size = 0;
-	}
+        tail = temp;
+        tail->next = nullptr;
+        size = second.size;
+    }
+    else
+    {
+        head = nullptr;
+        tail = nullptr;
+        size = 0;
+    }
 }
 
 template<class T>
 inline bool Fifo<T>::isEmpty()
 {
-	return size == 0 ? true : false;
+        return size;
 }
 
 template<class T>
 inline unsigned int Fifo<T>::getSize()
 {
-	return size;
+    return size;
 }
 
 template<class T>
 inline void Fifo<T>::clear()
 {
-	Node<T> *temp = head;
-	while (temp)
-	{
-		temp = temp->next;
-		delete head;
-		head = temp;
-	}
-	size = 0;
+    Node<T> *temp = head;
+    while (temp)
+    {
+        temp = temp->next;
+        delete head;
+        head = temp;
+    }
+    tail = nullptr;
+    size = 0;
 }
 
 template<class T>
 inline void Fifo<T>::show()
 {
-	if (!head)
-	{
-		cout << "queue is empty\n";
-		return;
-	}
+    if (!head)
+    {
+        cout << "queue is empty\n";
+        return;
+    }
 
-	Node<T> *temp = head;
-	while (temp)
-	{
-		cout << temp->data << " ";
-		temp = temp->next;
-	}
-	cout << "\n";
+    Node<T> *temp = head;
+    while (temp)
+    {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+    cout << "\n";
 }
 
 template<class T>
 inline void Fifo<T>::pushBack(T data)
 {
-	Node<T> *temp = new Node<T>;
-	temp->data = data;
+    Node<T> *temp = new Node<T>;
+    temp->data = data;
+    temp->next = nullptr;
 
-	if (!head)
-	{
-		tail = temp;
-		head = temp;
-	}
-	else
-	{
-		tail->next = temp;
-		tail = tail->next;
-	}
-	tail->next = nullptr;
-	size++;
+    if (!head)
+    {
+        tail = temp;
+        head = temp;
+    }
+    else
+    {
+        tail->next = temp;
+        tail = tail->next;
+    }
+    size++;
 }
 
 template<class T>
 inline void Fifo<T>::popFront()
 {
-	if (!head)
-	{
-		std::cout << "Queue is empty\n";
-		return;;
-	}
+    if (!head)
+    {
+        std::cout << "Queue is empty\n";
+        return;;
+    }
 
-	Node<T> *temp = head;
-	head = head->next;
+    Node<T> *temp = head;
+    head = head->next;
 
-	delete temp;
-	size--;
+    !head ? tail = nullptr : true;
+
+    delete temp;
+    size--;
 }
 
 template<class T>
 inline T Fifo<T>::getFront()
 {
-	if (!head)
-	{
-		std::cout << "Queue is empty\n";
-		return T();//
-	}
+    if (!head)
+    {
+        std::cout << "Queue is empty\n";
+        return T();//
+    }
 
-	return head->data;
+    return head->data;
 }
 
 
