@@ -7,70 +7,67 @@
 ReadFromFile::ReadFromFile(Deque &collection):collection(&collection)
 {}
 
-bool ReadFromFile::read(std::string filename)
+bool ReadFromFile::read(string filename)
 {
     fin.open(filename);
     if (!fin.is_open())
     {
-       std::cout << "Error of reading data\n";
+       cout << "Error of reading data\n";
         return false;
     }
-    std::string type;
-    std::string data;
-    std::getline(fin, type);//первое что записано в файле это тип объекта затем в идут все поля этого объекта каждый на новой строке
+
+    string type;
+    string data;
+    CommercialOrg *temp(nullptr);
 
     while (!fin.eof())
     {
-        CommercialOrg *temp(nullptr);
+        getline(fin, type);//первое что записано в файле это тип объекта затем в идут все поля этого объекта каждый на новой строке
+		
         if (type == "Bank")//определяем тип объекта и считываем данные из файла в объект подходящего типа (Bank или InsuranceComp)
-        {
-            Bank *temp = new Bank;
-            std::getline(fin, data);
-            temp->setBranchesQuality(std::stoi(data));
-            std::getline(fin, data);
-            temp->setClientsQuantity(std::stoi(data));
-            std::getline(fin, data);
-            temp->setDescription(data);
-            std::getline(fin, data);
-            temp->setHqCountry(data);
-            std::getline(fin, data);
-            temp->setName(data);
-            std::getline(fin, data);
-            temp->setWorkersQuantity(std::stoi(data));
-            std::getline(fin, data);
-            temp->setCashYearlyFlow(std::stoi(data));
+            temp = new Bank;
+        else if (type == "InsuranceComp")
+            temp = new InsuranceComp;
+		else
+			temp = nullptr;
 
-        }
-        else
-        {
-            InsuranceComp *temp = new InsuranceComp;
-            std::getline(fin, data);
-            temp->setBranchesQuality(std::stoi(data));
-            std::getline(fin, data);
-            temp->setClientsQuantity(std::stoi(data));
-            std::getline(fin, data);
-            temp->setDescription(data);
-            std::getline(fin, data);
-            temp->setHqCountry(data);
-            std::getline(fin, data);
-            temp->setName(data);
-            std::getline(fin, data);
-            temp->setWorkersQuantity(std::stoi(data));
-            std::getline(fin, data);
-            temp->setInsuranceConditions(data);
-            std::getline(fin, data);
-            temp->setInsuranceType(data);
-            std::getline(fin, data);
-            temp->setMinInsuranceSum(std::stoi(data)); 
+		if (temp)
+		{
+			getline(fin, data);
+			temp->setBranchesQuantity(stoi(data));
+			getline(fin, data);
+			temp->setClientsQuantity(stoi(data));
+			getline(fin, data);
+			temp->setStatMoneyCapital(stoi(data));
+			getline(fin, data);
+			temp->setDescription(data);
+			getline(fin, data);
+			temp->setHqCountry(data);
+			getline(fin, data);
+			temp->setName(data);
+			getline(fin, data);
+			temp->setWorkersQuantity(stoi(data));
 
-        }
-        delete temp;
-        collection->push_front(temp);
-        std::getline(fin, type);
+			if (type == "Bank")//определяем тип объекта и считываем данные из файла в объект подходящего типа (Bank или InsuranceComp)
+			{
+				getline(fin, data);
+				((Bank *)(temp))->setCashYearlyFlow(stoi(data));
+			}
+			else
+			{
+				getline(fin, data);
+				((InsuranceComp *)(temp))->setInsuranceConditions(data);
+				getline(fin, data);
+				((InsuranceComp *)(temp))->setInsuranceType(data);
+				getline(fin, data);
+				((InsuranceComp *)(temp))->setMinInsuranceSum(stoi(data));
+			}
+
+			collection->pushFront(temp);
+		}
     }
 
     fin.close();
 
     return true;
 }
-

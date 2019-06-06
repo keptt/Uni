@@ -1,14 +1,16 @@
 #include "commercialorganisation.h"
 #include <iostream>
 
+using namespace std;
 
 CommercialOrg::CommercialOrg():workersQuantity(0), clientsQuantity(0), branchesQuantity(0), name(""),
     hqCountry(""), description("")
 {}
 
-CommercialOrg::CommercialOrg(std::__cxx11::string &name, unsigned int workersQuantity, unsigned int clientsQuantity, unsigned int branchesQuantity,
-                             /*const std::__cxx11::string *partnerships,*/ std::__cxx11::string &hqCountry, std::__cxx11::string &description):
-    name(name), workersQuantity(workersQuantity), clientsQuantity(clientsQuantity), branchesQuantity(branchesQuantity), hqCountry(hqCountry)/*is valid?*/,
+CommercialOrg::CommercialOrg(string &name, unsigned int workersQuantity, unsigned int clientsQuantity, unsigned int branchesQuantity,
+                                           unsigned int statMoneyCapital, string &hqCountry, string &description):
+    name(name), workersQuantity(workersQuantity), clientsQuantity(clientsQuantity), branchesQuantity(branchesQuantity),
+    statMoneyCapital(statMoneyCapital), hqCountry(hqCountry)/*is valid?*/,
     description(description)
 {}
 
@@ -25,63 +27,82 @@ void CommercialOrg::setWorkersQuantity(unsigned int quantity)
     workersQuantity = quantity;
 }
 
-void CommercialOrg::setBranchesQuality(unsigned int branchesQuantity)
+void CommercialOrg::setBranchesQuantity(unsigned int branchesQuantity)
 {
     this->branchesQuantity = branchesQuantity;
 }
 
-void CommercialOrg::setName(std::string name)
+void CommercialOrg::setStatMoneyCapital(unsigned int capital)
+{
+    statMoneyCapital = capital;
+}
+
+void CommercialOrg::setName(string name)
 {
     this->name = name;
 }
 
-void CommercialOrg::setHqCountry(std::string &hqCountry)
+void CommercialOrg::setHqCountry(string &hqCountry)
 {
     this->hqCountry = hqCountry;
 }
 
-void CommercialOrg::setDescription(std::string &description)
+void CommercialOrg::setDescription(string &description)
 {
     this->description = description;
 }
 
-std::string CommercialOrg::getName()
+string CommercialOrg::getName() const
 {
     return name;
 }
 
-unsigned int CommercialOrg::getClientsQuantity()
+unsigned int CommercialOrg::getClientsQuantity() const
 {
     return clientsQuantity;
 }
 
-unsigned int CommercialOrg::getWorkersQuantity()
+unsigned int CommercialOrg::getWorkersQuantity() const
 {
     return workersQuantity;
 }
 
-std::string CommercialOrg::getHqCountry()
+unsigned int CommercialOrg::getStatMoneyCapital() const
+{
+    return statMoneyCapital;
+}
+
+string CommercialOrg::getHqCountry() const
 {
     return hqCountry;
 }
 
-std::string CommercialOrg::getDescription()
+string CommercialOrg::getDescription() const
 {
     return description;
 }
 
-unsigned int CommercialOrg::getBranchesQuality()
+unsigned int CommercialOrg::getBranchesQuantity() const
 {
     return branchesQuantity;
 }
 
-void CommercialOrg::print()
+ostream &operator<<(ostream &output, const CommercialOrg *obj)
+{
+    output << "====\n";
+    obj->print();
+    output << "====\n";
+    return  output;
+}
+
+void CommercialOrg::print() const
 {
     using namespace std;
 
     cout << "Name: " << name << endl;
     cout << "ClientsQuantity: " << clientsQuantity << endl;
     cout << "WorkersQuantity: " << workersQuantity << endl;
+    cout << "Money Capital: " << statMoneyCapital << endl;
     cout << "HqCountry: " << hqCountry << endl;
     cout << "BranchesQuantuty: " << branchesQuantity << endl;
     cout << "Description: " << description << endl;

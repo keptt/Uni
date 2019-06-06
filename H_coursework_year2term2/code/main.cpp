@@ -1,6 +1,8 @@
 #include <iostream>
+#include "menu.h"
 
-int main()
+int main(int argc, char *argv[])
 {
-    return 0;
+    Menu::createMenu().run();
+
 }

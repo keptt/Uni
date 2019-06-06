@@ -18,30 +18,31 @@ bool WriteToFile::write(std::string filename)
 
     while (collection->size() != 0)//непосредственно запись в зависимости от типа к которому принадлежит объект
     {
-        CommercialOrg *currentObj = collection->pop_front();//--
-        if (Bank *temp = dynamic_cast<Bank *>(currentObj))
-        {
+        CommercialOrg *currentObj = collection->popFront();//--
+        Bank *temp(nullptr);
+
+        if (temp = dynamic_cast<Bank *>(currentObj))
             fout << "Bank\n";//первое что записываем это тип объекта, затем его поля
-            fout << currentObj->getBranchesQuality();
-            fout << currentObj->getClientsQuantity();
-            fout << currentObj->getDescription();
-            fout << currentObj->getHqCountry();
-            fout << currentObj->getName();
-            fout << currentObj->getWorkersQuantity();
-            fout << ((Bank *)currentObj)->getCashYearlyFlow();
+        else
+            fout << "InsuranceComp\n";
+
+        fout << currentObj->getBranchesQuantity() << "\n";
+        fout << currentObj->getClientsQuantity() << "\n";
+        fout << currentObj->getStatMoneyCapital() << "\n";
+        fout << currentObj->getDescription() << "\n";
+        fout << currentObj->getHqCountry() << "\n";
+        fout << currentObj->getName() << "\n";
+        fout << currentObj->getWorkersQuantity() << "\n";
+
+        if (temp)
+        {
+            fout << ((Bank *)currentObj)->getCashYearlyFlow() << "\n";
         }
         else
         {
-            fout << "InsuranceComp";
-            fout << currentObj->getBranchesQuality();
-            fout << currentObj->getClientsQuantity();
-            fout << currentObj->getDescription();
-            fout << currentObj->getHqCountry();
-            fout << currentObj->getName();
-            fout << currentObj->getWorkersQuantity();
-            fout << ((InsuranceComp *)currentObj)->getInsuranceConditions();
-            fout << ((InsuranceComp *)currentObj)->getInsuranceType();
-            fout << ((InsuranceComp *)currentObj)->getMinInsuranceSum();
+            fout << ((InsuranceComp *)currentObj)->getInsuranceConditions() << "\n";
+            fout << ((InsuranceComp *)currentObj)->getInsuranceType() << "\n";
+            fout << ((InsuranceComp *)currentObj)->getMinInsuranceSum() << "\n";
         }
     }
 

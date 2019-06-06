@@ -1,6 +1,8 @@
 #include "insurancecompany.h"
 #include <iostream>
 
+using namespace std;
+
 InsuranceComp::InsuranceComp():CommercialOrg()
 {
     insuranceType = "";
@@ -8,25 +10,26 @@ InsuranceComp::InsuranceComp():CommercialOrg()
     minInsuranceSum = 0;
 }
 
-InsuranceComp::InsuranceComp(std::__cxx11::string &name, unsigned int workersQuantity, unsigned int clientsQuantity, unsigned int branchesQuantity,
-                             std::__cxx11::string &hqCountry, std::__cxx11::string &description, std::__cxx11::string &insuranceType,
-                             std::__cxx11::string &insuranceConditions, int minInsuranceSum):CommercialOrg (name, workersQuantity, clientsQuantity, branchesQuantity,
-                                                                                       hqCountry, description)
+InsuranceComp::InsuranceComp(string &name, unsigned int workersQuantity, unsigned int clientsQuantity, unsigned int branchesQuantity,
+                                 unsigned int statMoneyCapital,
+                                 /*const string *partnerships,*/ string &hqCountry, string &description, string &insuranceType,
+                                 string &insuranceConditions, int minInsuranceSum)
+                                 :CommercialOrg (name, workersQuantity, clientsQuantity, branchesQuantity, statMoneyCapital, hqCountry, description),
+                                 insuranceType(insuranceType),
+                                 insuranceConditions(insuranceConditions),
+                                 minInsuranceSum(minInsuranceSum)
 {
-    this->insuranceType = insuranceType;
-    this->insuranceConditions = insuranceConditions;
-    this->minInsuranceSum = minInsuranceSum;
 }
 
 InsuranceComp::~InsuranceComp()
 {}
 
-void InsuranceComp::setInsuranceType(std::string &insuranceType)
+void InsuranceComp::setInsuranceType(string &insuranceType)
 {
     this->insuranceType = insuranceType;
 }
 
-void InsuranceComp::setInsuranceConditions(std::string &insuranceConditions)
+void InsuranceComp::setInsuranceConditions(string &insuranceConditions)
 {
     this->insuranceConditions = insuranceConditions;
 }
@@ -36,17 +39,17 @@ void InsuranceComp::setMinInsuranceSum(int insuranceSum)
     this->minInsuranceSum = insuranceSum;
 }
 
-std::string InsuranceComp::getInsuranceType()
+string InsuranceComp::getInsuranceType() const
 {
     return insuranceType;
 }
 
-std::string InsuranceComp::getInsuranceConditions()
+string InsuranceComp::getInsuranceConditions() const
 {
     return insuranceType;
 }
 
-int InsuranceComp::getMinInsuranceSum()
+int InsuranceComp::getMinInsuranceSum() const
 {
     return minInsuranceSum;
 }

@@ -2,6 +2,8 @@
 #define BANK_H
 #include "commercialorganisation.h"
 
+using namespace std;
+
 class Bank : public CommercialOrg//наследование от базового класса иерархии в результате чего данный класс будет содержать в себе все поля (переменные) и
                                  //методы (функции) базового класса
 {
@@ -18,8 +20,9 @@ private:
 public:
 //--------------------------------------------------------------------------------------//
     Bank();
-    Bank(std::string &name, unsigned int workersQuantity, unsigned int clientsQuantity, unsigned int branchesQuantity,
-         /*const std::string *partnerships,*/ std::string &hqCountry, std::string &description, /*int *cardPaySystems,*/ int cashYearlyFlow);//конструктор с параметрами
+    Bank(string &name, unsigned int workersQuantity, unsigned int clientsQuantity, unsigned int branchesQuantity,
+         unsigned int statMoneyCapital, /*const string *partnerships,*/ string &hqCountry, string &description, /*int *cardPaySystems,*/
+         int cashYearlyFlow);//конструктор с параметрами
     ~Bank();//деструктор
 //--------------------------------------------------------------------------------------//
     //сетеры
@@ -27,10 +30,10 @@ public:
     //void setCardPaySystems(int *cardPatSystems);
 //--------------------------------------------------------------------------------------//
     //геттеры
-    int getCashYearlyFlow();
-    //std::pair<int *, size_t> getCardPaySystems();
+    int getCashYearlyFlow() const;
+    //pair<int *, size_t> getCardPaySystems();
 //--------------------------------------------------------------------------------------//
-    void print() const override;
+    void print() const;
 //--------------------------------------------------------------------------------------//
 };
 
