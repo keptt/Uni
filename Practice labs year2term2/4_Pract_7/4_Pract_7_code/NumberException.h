@@ -3,7 +3,7 @@
 
 class NumberException
 {
-	const char *msg;
+	char *msg;
 public:
 	NumberException(const char *msg);
 	NumberException();

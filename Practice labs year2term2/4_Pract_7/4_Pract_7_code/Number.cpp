@@ -2,7 +2,6 @@
 #include "NumberException.h"
 #include <limits>
 
-
 Number::Number()
 {
 }

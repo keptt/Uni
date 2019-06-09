@@ -2,6 +2,8 @@
 #include "Number.h"
 #include "NumberException.h"
 
+#define TIMES 2
+
 using std::cout;
 using std::cin;
 using std::endl;
@@ -10,45 +12,28 @@ int main()
 {
 	int a, b;
 
-	cout << "Input first number to be multiplied: ";
-
-	cin >> a;
-
-	cout << "Input second number to be multiplied: ";
-
-	cin >> b;
-
-	Number firstnum(a);									//cin>>...
-
-	Number secondnum(b);
-
-	try 
+	for (int i = TIMES; i > 0; i--)
 	{
-		std::cout << firstnum * secondnum << endl;
-	}
-	catch (std::exception ex)
-	{
-		cout << ex.what() << endl;
-	}
+		cout << "Input first number to be multiplied: ";
 
-	cout << "Input first number to be multiplied: ";
+		cin >> a;
 
-	cin >> a;
+		cout << "Input second number to be multiplied: ";
 
-	cout << "Input second number to be multiplied: ";
+		cin >> b;
 
-	cin >> b;
+		Number firstnum(a);									//cin>>...
 
-	firstnum.set_number(a);
-	secondnum.set_number(b);
+		Number secondnum(b);
 
-	try
-	{
-		std::cout << firstnum * secondnum << endl;
-	}
-	catch (NumberException ex)
-	{
-		cout << ex.what() << endl;
+		try
+		{
+			std::cout << firstnum * secondnum << endl;
+		}
+		catch (const NumberException &ex)
+		{
+			cout << ex.what() << endl;
+		}
 	}
 
 	system("pause");
