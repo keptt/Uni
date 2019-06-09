@@ -21,7 +21,8 @@ public:
     void add(int element, unsigned int col, unsigned int row);
 
 
-    void printOut() const;
+    std::ostream &printOut(std::ostream out = std::cout) const;
+    friend std::ostream &operator<<(const std::ostream &out, const Matrix &m);
 };
 
 //Matrix operator+(const Matrix&, const Matrix&);

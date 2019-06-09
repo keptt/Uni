@@ -81,11 +81,16 @@ void Matrix::add(int element, unsigned int colIndx, unsigned int rowIndx)
     matrix[colIndx][rowIndx] = element;
 }
 
-void Matrix::printOut() const{
+std::ostream &Matrix::printOut(std::ostream out = std::cout) const{
     for (unsigned int i = 0; i < colSize; ++i){
         for (unsigned int j = 0; j < rowSize; ++j){
-            std::cout << this->matrix[i][j] << " ";
+            out << this->matrix[i][j] << " ";
         }
-        std::cout << "\n";
+        out << "\n";
     }
+}
+
+std::ostream &operator<<(const std::ostream &out, const Matrix &m)
+{
+    return m.printOut(out);
 }

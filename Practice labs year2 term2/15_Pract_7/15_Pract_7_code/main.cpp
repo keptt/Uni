@@ -8,8 +8,7 @@ using namespace std;
 
 int main()
 {
-    Matrix m1(2, 2);
-    Matrix m2(2, 2);
+    Matrix m1(COLS, ROWS);
 
     for (unsigned int i = 0; i < COLS; ++i)
     {
@@ -39,7 +38,7 @@ int main()
 
     m2.printOut();
 
-    Matrix m3(2, ROWSOVERFLOW);
+    Matrix m3(COLS, ROWSOVERFLOW);
 
     for (unsigned int i = 0; i < COLS; ++i)
     {

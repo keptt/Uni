@@ -1,3 +1,4 @@
+#include <string.h>
 #include "matrixexception.h"
 
 const char *MatrixException::what() const noexcept
@@ -5,7 +6,7 @@ const char *MatrixException::what() const noexcept
     return msg;
 }
 
-MatrixException::MatrixException(const char *s)
+MatrixException::MatrixException(const char *s) : msg(s ? new char[strlen(s) + 1] : nullptr)
 {
-    msg = s;//(const) nonconst_msg = const_s???? what then?
+    strcpy(msg, s);
 }
