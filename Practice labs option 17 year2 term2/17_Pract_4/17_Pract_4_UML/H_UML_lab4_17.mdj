@@ -352,13 +352,47 @@
 											"height": 13,
 											"text": "+printEquation(): void {query}",
 											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFrWnhMff7tZr0=",
+											"_parent": {
+												"$ref": "AAAAAAFqX/Cbj8rsCac="
+											},
+											"model": {
+												"$ref": "AAAAAAFrWnhMRv7qOTc="
+											},
+											"font": "Arial;13;0",
+											"left": 149,
+											"top": 609,
+											"width": 350,
+											"height": 13,
+											"text": "+operator%(line: LineEquation): float",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFrWnhPTv7z0TY=",
+											"_parent": {
+												"$ref": "AAAAAAFqX/Cbj8rsCac="
+											},
+											"model": {
+												"$ref": "AAAAAAFrWnhPPP7w+Qg="
+											},
+											"font": "Arial;13;0",
+											"left": 149,
+											"top": 624,
+											"width": 350,
+											"height": 13,
+											"text": "+operator&&(line: LineEquation): bool",
+											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 144,
 									"top": 439,
 									"width": 360,
-									"height": 173
+									"height": 203
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -394,7 +428,7 @@
 							"left": 144,
 							"top": 376,
 							"width": 360,
-							"height": 236,
+							"height": 266,
 							"nameCompartment": {
 								"$ref": "AAAAAAFqX/Cbj8rmsk8="
 							},
@@ -644,7 +678,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 207,
+									"left": 204,
 									"top": 346,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -665,7 +699,7 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 195,
+									"left": 191,
 									"top": 354,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -686,7 +720,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 232,
+									"left": 229,
 									"top": 329,
 									"height": 13,
 									"alpha": -1.5707963267948966,
@@ -705,7 +739,7 @@
 								"$ref": "AAAAAAFqX/CbjsrlaRE="
 							},
 							"lineStyle": 1,
-							"points": "242:375;199:313",
+							"points": "237:375;197:313",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAFqYKqPMsvC8gw="
@@ -957,6 +991,66 @@
 										"$ref": "AAAAAAFqYA+IOstuqII="
 									},
 									"type": "void {query}",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFrWnhMRv7qOTc=",
+							"_parent": {
+								"$ref": "AAAAAAFqX/Cbjcrjbl8="
+							},
+							"name": "operator%",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFrWnjsGf73qSA=",
+									"_parent": {
+										"$ref": "AAAAAAFrWnhMRv7qOTc="
+									},
+									"name": "line",
+									"type": {
+										"$ref": "AAAAAAFqX/Cbjcrjbl8="
+									}
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFrWnjsGv74fOw=",
+									"_parent": {
+										"$ref": "AAAAAAFrWnhMRv7qOTc="
+									},
+									"type": "float",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFrWnhPPP7w+Qg=",
+							"_parent": {
+								"$ref": "AAAAAAFqX/Cbjcrjbl8="
+							},
+							"name": "operator&&",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFrWnkcaf782LA=",
+									"_parent": {
+										"$ref": "AAAAAAFrWnhPPP7w+Qg="
+									},
+									"name": "line",
+									"type": {
+										"$ref": "AAAAAAFqX/Cbjcrjbl8="
+									}
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFrWnkcaf793m4=",
+									"_parent": {
+										"$ref": "AAAAAAFrWnhPPP7w+Qg="
+									},
+									"type": "bool",
 									"direction": "return"
 								}
 							]
