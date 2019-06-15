@@ -10,6 +10,9 @@ private:
     const char *msg;
 public:
     MatrixException(const char *);
+    MatrixException(const MatrixException &) = delete;
+    MatrixException &operator=(const MatrixException &) = delete;
+    ~MatrixException();
     const char*what() const noexcept;
 };
 

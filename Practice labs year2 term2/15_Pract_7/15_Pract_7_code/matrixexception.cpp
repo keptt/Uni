@@ -10,3 +10,7 @@ MatrixException::MatrixException(const char *s) : msg(s ? new char[strlen(s) + 1
 {
     strcpy(msg, s);
 }
+MatrixException::~MatrixException()
+{
+    delete[] msg;
+}
