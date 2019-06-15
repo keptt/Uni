@@ -18,3 +18,7 @@ char const * NumberException::what() const throw()
 	return msg;
 }
 
+NumberException::~NumberException()
+{
+	delete[] msg;
+}

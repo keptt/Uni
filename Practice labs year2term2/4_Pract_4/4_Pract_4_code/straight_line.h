@@ -27,8 +27,8 @@ public:
     void set_b(point b);
     inline point get_a() const;
     inline point get_b() const;
-    bool operator||(straight_line & line);
-    double operator%(straight_line & line);
+    bool operator||(const sstraight_line & line);
+    double operator%(const sstraight_line & line);
 };
 
 #endif // STRAIGHT_LINE_H

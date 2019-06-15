@@ -49,12 +49,12 @@ point straight_line::get_b() const
     return b;
 }
 
-bool straight_line::operator||(straight_line &line)
+bool straight_line::operator||(const straight_line &line)
 {
     return ((a.x % line.a.x == 0 ? true : false) && (b.x % line.b.x == 0 ? true : false)) || ((line.a.x % a.x == 0 ? true : false) && (line.b.x % b.x == 0 ? true : false));
 }
 
-double straight_line::operator%(straight_line &line)
+double straight_line::operator%(const straight_line &line)
 {
     point vec1 = point(b.x - a.x, b.y - a.y);
     point vec2 = point(line.b.x - line.a.x, line.b.y - line.a.y);
