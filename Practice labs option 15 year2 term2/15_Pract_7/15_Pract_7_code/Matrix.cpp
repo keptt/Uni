@@ -16,7 +16,7 @@ Matrix::Matrix(int **matrix, size_t size_columns, size_t size_row) : m_size_colu
 Matrix operator+(const Matrix &first_matr, const Matrix &second_matr) 
 {
 	if (first_matr.m_size_columns != second_matr.m_size_columns || first_matr.m_size_rows != second_matr.m_size_rows)
-		throw MatrixException("Sizes of matrixes mismatch");
+		throw MyExcp("Sizes of matrixes mismatch");
 
 	Matrix m(first_matr.m_size_columns, first_matr.m_size_rows);
 	for (size_t i = 0; i < first_matr.m_size_columns; ++i) 
@@ -85,7 +85,7 @@ Matrix &Matrix::operator=(const Matrix &other)
 void Matrix::push(int element, size_t indx_columns, size_t indx_row)
 {
 	if (indx_columns >= m_size_columns || indx_row >= m_size_rows)
-		throw MatrixException("wrong index was provided");
+		throw MyExcp("wrong index was provided");
 	mtrx[indx_columns][indx_row] = element;
 }
 

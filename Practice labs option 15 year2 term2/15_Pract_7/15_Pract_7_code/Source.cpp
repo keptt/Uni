@@ -1,89 +1,59 @@
 #include "matrix.h"
 #include <iostream>
+#include <vector>
 
 int main()
 {
-
+	bool ok = false;
 	int temp;
+	size_t n, m;
+	const size_t pair = 2;
 
-
-	Matrix matr_first_ft(3, 3);
-	for (size_t i = 0; i < 3; ++i)
+	while (!ok)
 	{
-		for (size_t j = 0; j < 3; ++j)
+		std::vector<Matrix> mv;
+		mv.reserve(2);
+		for (size_t i = 0; i < pair; ++i)
 		{
-			std::cout << "Input val for matr: ";
-			std::cin >> temp;
-			matr_first_ft.push(temp, i, j);
+
+			std::cout << "Input m: ";
+			std::cin >> m;
+			std::cout << "Input n: ";
+			std::cin >> n;
+			Matrix matr_ft(m, n);
+			for (size_t j = 0; j < m; ++j)
+			{
+				for (size_t k = 0; k < n; ++k)
+				{
+					std::cout << "Input val for matr: ";
+					std::cin >> temp;
+					matr_ft.push(temp, j, k);
+				}
+			}
+			matr_ft.display();
+			std::cout << "\n";
+			mv.push_back(matr_ft);
+		}
+
+		Matrix matr_res(*mv.cbegin());
+		for (std::vector<Matrix>::const_iterator it = ++mv.cbegin(); it != mv.cend(); ++it)
+		{
+			try
+			{
+				matr_res = matr_res + *it;
+				ok = true;
+			}
+			catch (const MyExcp &e)
+			{
+				std::cout << e.what() << std::endl;
+			}
+		}
+		if (ok)
+		{
+			matr_res.display();
 		}
 	}
-
-	matr_first_ft.display();
-	std::cout << "\n";
-	Matrix matr_second_ft(3, 3);
-	for (size_t i = 0; i < 3; ++i)
-	{
-		for (size_t j = 0; j < 3; ++j)
-		{
-			std::cout << "Input val for matr:";
-			std::cin >> temp;
-			matr_second_ft.push(temp, i, j);
-		}
-	}
-
-	matr_second_ft.display();
-
-	std::cout << "addition of first and second matr: ";
-	try
-	{
-		matr_first_ft = matr_first_ft + matr_second_ft;
-		matr_first_ft.display();
-	}
-	catch (const MyExcp &e) 
-	{
-		std::cout << e.what() << std::endl;
-	}
-
-	Matrix matr_first(3, 3);
-	for (size_t i = 0; i < 3; ++i)
-	{
-		for (size_t j = 0; j < 3; ++j)
-		{
-			std::cout << "Input val for matr: ";
-			std::cin >> temp;
-			matr_first.push(temp, i, j);
-		}
-	}
-
-	matr_first.display();
-	std::cout << std::endl;
-	Matrix matr_second(3, 2);
-	for (size_t i = 0; i < 3; ++i)
-	{
-		for (size_t j = 0; j < 2; ++j)
-		{
-			std::cout << "Input val for matr:";
-			std::cin >> temp;
-			matr_second.push(temp, i, j);
-		}
-	}
-
-	matr_second.display();
-	std::cout << std::endl;
-	std::cout << "addition of first and second matr: ";
-	try 
-	{
-		matr_first = matr_first + matr_second;
-		matr_first.display();
-	}
-	catch (const MyExcp &e) 
-	{
-		std::cout << e.what() << std::endl;
-	}
-
-
-
-
+	
 	std::cin.get();
 	std::cin.get();
 	return 0;
